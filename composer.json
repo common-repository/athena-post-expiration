@@ -1,0 +1,25 @@
+{
+    "name": "brightthought/athena-post-expiration",
+    "description": "Athena post expiration plugin",
+    "type": "wordpress-plugin",
+    "license": "GPLv3",
+    "autoload": {
+        "psr-4": {
+            "Athena\\": "app/"
+        },
+      "files": [
+        "app/Utils/athena_functions.php"
+      ]
+    },
+    "authors": [
+        {
+            "name": "Erik Thomas",
+            "email": "erik@brightthought.co"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php-di/php-di": "^6.4",
+        "illuminate/support": "^8.83"
+    }
+}

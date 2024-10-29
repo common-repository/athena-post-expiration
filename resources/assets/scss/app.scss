@@ -1,0 +1,419 @@
+@import "~flatpickr/dist/flatpickr.min.css";
+$fa_font-path: "../fonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+
+.athena-wrapper, .athena-post_meta-hold, .athena-menu-content {
+  @import "~bootstrap/scss/bootstrap";
+  @import "~choices.js/src/styles/choices";
+}
+
+// Variables
+$athena_blue: #262262;
+$athena_grey: #eee;
+$athena_light_grey: #f9f9f9;
+
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?ol1wdq');
+  src:  url('../fonts/icomoon.eot?ol1wdq#iefix') format('embedded-opentype'),
+  url('../fonts/icomoon.ttf?ol1wdq') format('truetype'),
+  url('../fonts/icomoon.woff?ol1wdq') format('woff'),
+  url('../fonts/icomoon.svg?ol1wdq#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Athena-icon:before {
+  content: "\e900";
+  color: #eee;
+}
+
+/* Menu Options */
+a.toplevel_page_athena {
+  div.wp-menu-image {
+
+    &:before{
+      font-family: 'icomoon' !important;
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      content: "\e900";
+    }
+  }
+}
+
+.athena-wrapper {
+
+  img {
+    max-width:100%;
+    display:block;
+    height:auto;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .athena-content-wrapper {
+    margin-top:25px;
+    box-shadow:0 0 3px rgba(0,0,0,0.35);
+
+    .athena-body {
+      background-color:#fff;
+
+      &:after{
+        content:"";
+        display:table;
+        clear:both;
+      }
+
+      aside {
+        float:left;
+        width:18%;
+        background-color:#fff;
+
+        ul.athena-menu {
+          margin:0;
+          padding:0;
+
+          > li {
+            width:100%;
+            background:$athena_grey;
+            color:#333333;
+            text-align: center;
+            font-size:1.15em;
+            margin:0;
+
+            > a {
+              display:block;
+              padding:8px 0;
+              text-decoration: none;
+              color:#111;
+              font-weight:300;
+              transition:all linear 0.3s;
+              position:relative;
+              border-bottom:solid thin darken($athena_grey, 10%);
+              border-right:solid thin darken($athena_grey, 10%);
+              z-index:1;
+
+              &:after {
+                content: "";
+                position:absolute;
+                right:-13px;
+                top:50%;
+                transform:translateY(-50%);
+                border-bottom:transparent solid 12px;
+                border-top:transparent solid 12px;
+                border-right:#fff solid 12px;
+                transition:right linear 0.3s;
+                z-index:99;
+              }
+
+
+              &:hover, &.active {
+                background-color:darken($athena_grey, 10%);
+                color:$athena_blue;
+
+                &:after {
+                  right:-1px;
+                }
+              }
+
+              &:focus {
+                outline:none;
+                box-shadow: none;
+              }
+            }
+
+            > span {
+              display:block;
+              padding:5px 0;
+              font-size:1.12rem;
+              background-color: darken($athena_blue, 10%);
+              color:#fff;
+            }
+
+            .athena-post-types {
+              background-color:$athena_blue;
+
+              li {
+                margin-bottom:0;
+                border-bottom:darken($athena_blue, 10%) solid thin;
+
+                a {
+                  display:block;
+                  width:100%;
+                  text-align:center;
+                  padding:8px 0;
+                  font-size:0.9em;
+                  color:#fff;
+                  text-decoration: none;
+                  font-weight:300;
+                  transition: all linear 0.3s;
+
+                  &:hover {
+                    background-color:darken($athena_blue, 10%);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      main {
+        float:left;
+        width:82%;
+
+        form {
+          position:relative;
+          padding:0 35px;
+
+          .athena-save-bar {
+            width:100%;
+            padding:7px 50px 7px 0;
+            background-color:$athena_grey;
+            position: absolute;
+            top:0;
+            left:0;
+            text-align:right;
+
+            * {
+              display:inline-block;
+            }
+
+            .athena-save {
+              margin-right:15px;
+
+              .athena-saving, .athena-save-message {
+                display:none;
+              }
+
+            }
+
+            input[type=submit] {
+              background-color:$athena_blue;
+              padding:8px 22px;
+              color:#fff;
+              border-radius:5px;
+              transition:all linear 0.3s;
+              cursor:pointer;
+
+              &:hover {
+                background-color:darken($athena_blue, 10%);
+              }
+            }
+
+            input[type=reset] {
+              background-color:darken($athena_grey, 35%);
+              padding:8px 22px;
+              color:#fff;
+              border-radius:5px;
+              transition:all linear 0.3s;
+              cursor: pointer;
+
+              &:hover {
+                background-color:darken($athena_grey, 45%);
+              }
+            }
+          }
+
+          .athena-form-inner {
+            padding:100px 20px 0;
+
+            > div {
+              display:none;
+              position:relative;
+
+              &.active {
+                z-index:99;
+                display: block;
+              }
+
+
+              .athena-hide {
+                display:none;
+              }
+
+              .athena-element-hold {
+                box-sizing: inherit;
+                padding:15px 15px 30px;
+                border-bottom:$athena_grey solid thin;
+                margin-bottom:15px;
+
+                .athena-title {
+                  font-size:1.15em;
+                  font-weight: bold;
+                  margin-bottom:5px;
+                }
+
+                .athena-desc {
+                  margin-bottom: 10px;
+                  font-size: 1.05em;
+                }
+
+                .athena-profile-datetime {
+                  margin-top:25px;
+                  background-color:$athena_light_grey;
+                  padding:15px;
+                  box-sizing: inherit;
+                  border-radius: 5px;
+                }
+
+                .cron-type-wrapper:not(:last-of-type) {
+                  margin-bottom: 25px;
+                }
+              }
+
+              > div:last-of-type {
+                border-bottom:none;
+                margin-bottom:0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* Meta box control */
+.athena-menu-content {
+  box-sizing:border-box;
+  padding:15px;
+
+  .athena-hide {
+    display:none;
+  }
+
+  .athena-element-hold {
+    box-sizing: inherit;
+    padding:15px 15px 30px;
+    border-bottom:$athena_grey solid thin;
+    margin-bottom:15px;
+
+    .athena-title {
+      font-size:1.15em;
+      font-weight: bold;
+      margin-bottom:5px;
+    }
+
+    .athena-desc {
+      margin-bottom: 10px;
+      font-size: 1.05em;
+    }
+
+    .athena-profile-datetime {
+      margin-top:25px;
+      background-color:$athena_light_grey;
+      padding:15px;
+      box-sizing: inherit;
+      border-radius: 5px;
+    }
+  }
+
+  .athena-post_meta-hold {
+    span {
+      font-weight:bold;
+    }
+
+    .athena-enable {
+      margin-bottom:13px;
+
+      span {
+        padding-right:15px;
+      }
+
+      input {
+        margin-top:0;
+      }
+    }
+
+    .athena-profile {
+      select {
+        margin-top:5px;
+      }
+    }
+
+    .athena-sep-title {
+      text-align: center;
+      margin:8px 0;
+      font-weight:bold;
+    }
+
+    .athena-date-picker {
+
+      .form-group {
+        margin-top:5px;
+      }
+    }
+  }
+
+  > div:last-of-type {
+    border-bottom:none;
+    margin-bottom:0;
+  }
+}
+
+/* Post Type Meta Overrides */
+
+#athena-post-settings {
+  &:last-of-type {
+    margin-bottom: 150px;
+  }
+
+  .athena-element-hold {
+    padding:10px 0 10px;
+    border-bottom:none;
+    margin-bottom:0;
+
+    .athena-title {
+      font-size:1em;
+    }
+  }
+
+  .choices__list--dropdown {
+    z-index: 999;
+  }
+}
+
+/* Media button styles */
+
+.athena-profile-option-button {
+  span {
+    font-size:1.5em;
+    float:left;
+    padding:3px 5px 0 0;
+
+    &:before {
+      color:#555d66;
+    }
+  }
+}
